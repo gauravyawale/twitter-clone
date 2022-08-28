@@ -1,0 +1,32 @@
+$primary:#2b89ee;
+$backgroundColor:black;
+$textColor:rgb(241, 221, 221);
+$secondary:rgb(156, 152, 152);
+$border-color:rgb(106, 104, 104);
+$danger:rgb(182, 53, 53);
+$layout-breakpoint-medium: 768px;
+$layout-breakpoint-small: 600px;
+
+
+
+@mixin flex-box($direction, $justifyContent, $alignItnes){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justifyContent;
+    align-items:  $alignItnes;
+}
+
+%primary-buttons{
+    // border:1px solid $primary;
+    color:$textColor;
+    background-color:$backgroundColor;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 16px;
+    border-radius: 4px;
+    padding: 4px;
+    &:hover{
+        color:$primary;
+       
+    }
+}

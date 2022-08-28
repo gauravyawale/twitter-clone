@@ -1,0 +1,21 @@
+@import "./variables";
+
+
+.header-buttons {
+  @extend %primary-buttons;
+  margin-bottom: 2rem;
+}
+
+.hero-img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 100px;
+}
+
+@media (max-width: $layout-breakpoint-medium) {
+  .hero-img {
+    margin-left: 0;
+    width: 50px;
+  }
+}

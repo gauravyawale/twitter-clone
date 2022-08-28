@@ -1,0 +1,19 @@
+@import "./variables";
+
+.pageNotFound{
+    @include flex-box(column, center, center);
+    height:50vh;
+    margin: 10rem 15rem;
+    border: 1px solid rgb(110, 6, 6);
+    border-radius: 8px;
+}
+
+.link{
+    color:rgb(40, 97, 230);
+}
+
+@media screen and (max-width:768px) {
+    .pageNotFound{
+        margin: 10rem 2rem;
+    }
+}

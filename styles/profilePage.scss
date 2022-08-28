@@ -1,0 +1,17 @@
+@import "./variables";
+
+.profile-container{
+    @include flex-box(column,flex-start, center);
+    height:100vh;
+    margin-top: 5rem;
+}
+
+.profileImage{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-email{
+    margin: 0 0 2rem 0;
+}

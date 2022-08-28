@@ -1,0 +1,30 @@
+.header-buttons {
+  color: rgb(241, 221, 221);
+  background-color: black;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 16px;
+  border-radius: 4px;
+  padding: 4px;
+}
+.header-buttons:hover {
+  color: #2b89ee;
+}
+
+.header-buttons {
+  margin-bottom: 2rem;
+}
+
+.hero-img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 100px;
+}
+
+@media (max-width: 768px) {
+  .hero-img {
+    margin-left: 0;
+    width: 50px;
+  }
+}/*# sourceMappingURL=header.css.map */

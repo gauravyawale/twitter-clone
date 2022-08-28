@@ -1,0 +1,125 @@
+@import "./variables";
+/*Flexbox gives us the flexiness we need. The top just stays put as there is no scrolling on the body due to the page never exceeding viewport height*/
+
+/*This is our main wrapping element, it's made 100vh high to ensure it is always the correct size and then moved into place and padded with negative margin and padding*/
+.Container {
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+  backface-visibility: hidden;
+  will-change: overflow;
+}
+/*All the scrollable sections should overflow and be whatever height they need to be. As they are flex-items (due to being inside a flex container) they could be made to stretch full height at all times if needed.
+WebKit inertia scrolling is being added here for any present/future devices that are able to make use of it.
+*/
+.Left,
+.Middle,
+.Right {
+  overflow: auto;
+  height: auto;
+  padding: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+}
+/*Entirely optional – just wanted to remove the scrollbar on WebKit browsers as I find them ugly*/
+.Left::-webkit-scrollbar,
+.Middle::-webkit-scrollbar,
+.Right::-webkit-scrollbar {
+  display: none;
+}
+/*  Left and Right are set sizes while the Middle is set to flex one so it occupies all remaining space. This could be set as a width too if prefereable, perhaps using calc.*/
+
+.Middle {
+  width: 55%;
+  flex: 1;
+}
+
+.Container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.Left {
+  text-align: center;
+  width: 25%;
+  border-right: 1px solid gray;
+}
+
+.Right {
+  text-align: center;
+  width: 25%;
+  border-left: 1px solid gray;
+}
+.tweet-toggle {
+  position: absolute;
+  bottom: 16px;
+  right: 4px;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: $primary;
+  text-align: center;
+  font-size: 42px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.redirect{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logIn{
+  @include flex-box(row, center, center);
+  height: 100vh;
+}
+
+@media screen and (max-width: $layout-breakpoint-medium) {
+  .Right {
+    display: none;
+  }
+  .Container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .Middle {
+    width: 100%;
+    padding: 4px;
+  }
+
+  .Left {
+    display: flex;
+    width: 100%;
+    border: none;
+    height: 13vh;
+    // border-bottom: 1px solid $border-color;
+    box-shadow: 0 4px 8px -4px gray;
+  }
+
+  .tweet-toggle{
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: $layout-breakpoint-small) {
+ 
+  .Left {
+    display: flex;
+    width: 100%;
+    border: none;
+    height: 8vh;
+    // border-bottom: 1px solid $border-color;
+    box-shadow: 0 4px 8px -4px gray;
+  }
+
+ 
+}
