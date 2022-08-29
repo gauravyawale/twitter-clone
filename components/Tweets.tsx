@@ -83,7 +83,7 @@ const Tweets = ({ isCreate }: any) => {
                     {tweet?.createdAt ? new Date(tweet?.createdAt).toLocaleString() : new Date().toLocaleString()}
                   </span>
                 </h1>
-                <p className="tweet-message">{tweet?.message ? tweet?.message : "Welcome to twitter clone"}</p>
+                <p className="tweet-message">{tweet?.message ? tweet?.message : dummyMessaage}</p>
                 {tweet?.file && (
                   <Image
                     src={tweet?.file}
@@ -125,3 +125,6 @@ const Tweets = ({ isCreate }: any) => {
 };
 
 export default Tweets;
+
+
+const dummyMessaage = "Welcome to twitter clone. This is dummy message. Be the first by posting tweet."
