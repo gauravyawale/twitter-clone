@@ -78,12 +78,12 @@ const Tweets = ({ isCreate }: any) => {
 
               <div className="tweet-details">
                 <h1 className="tweet-username">
-                  {tweet?.username}{" "}
+                  {tweet?.username ? tweet?.username : "testuser"}{" "}
                   <span className="tweet-time">
-                    {new Date(tweet?.createdAt).toLocaleString()}
+                    {tweet?.createdAt ? new Date(tweet?.createdAt).toLocaleString() : new Date().toLocaleString()}
                   </span>
                 </h1>
-                <p className="tweet-message">{tweet?.message}</p>
+                <p className="tweet-message">{tweet?.message ? tweet?.message : "Welcome to twitter clone"}</p>
                 {tweet?.file && (
                   <Image
                     src={tweet?.file}
