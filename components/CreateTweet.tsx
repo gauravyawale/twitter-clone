@@ -86,7 +86,7 @@ const CreateTweet = ({ setIsCreate }: any) => {
         }}
         validationSchema={validate}
         onSubmit={(values) => {
-          console.log(values);
+          // console.log(values);
           const userTweet: TweetsProps = {
             message: values.message,
             file: abc,

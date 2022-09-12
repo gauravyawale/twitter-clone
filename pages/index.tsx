@@ -18,7 +18,7 @@ const metaData: MetaDataProps = {
   canonical: "/",
 };
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ userTweets }: any) => {
   const [isCreate, setIsCreate] = useState<boolean>(false);
   const { user, error, isLoading } = useUser();
   const router = useRouter();
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
 
   return (
     <div>
-        <Meta metaData={metaData} />
+      <Meta metaData={metaData} />
       {user || isLoading ? (
         <>
           {isCreate && <CreateTweet setIsCreate={setIsCreate} />}
@@ -45,7 +45,7 @@ const Home: NextPage = () => {
           </div>
           <div className="Container">
             <Header />
-            <Tweets isCreate={isCreate} />
+            <Tweets isCreate={isCreate} userTweets={userTweets} />
             <Footer />
           </div>
         </>
@@ -57,5 +57,21 @@ const Home: NextPage = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const res = await fetch("twitter-clone-two-opal.vercel.app/api/usertweets");
+  let userTweets = await res.json();
+  userTweets = userTweets.data.userTweets;
+
+  // By returning { props: { posts } }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      userTweets,
+    },
+  };
+}
 
 export default Home;
