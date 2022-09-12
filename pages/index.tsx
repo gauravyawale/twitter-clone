@@ -61,7 +61,9 @@ const Home: NextPage = ({ userTweets }: any) => {
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch("twitter-clone-two-opal.vercel.app/api/usertweets");
+  const res = await fetch(
+    "https://twitter-clone-two-opal.vercel.app/api/usertweets"
+  );
   let userTweets = await res.json();
   userTweets = userTweets.data.userTweets;
 
